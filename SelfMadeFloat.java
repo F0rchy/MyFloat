@@ -44,4 +44,36 @@ public class SelfMadeFloat
             count++;
         }
     }
+
+    public void dif(SelfMadeFloat b) {
+        long resultFraction = 0;
+        long resultInteger = 0;
+        int count = 0;
+        long maxExponent = 0;
+        long minExponent = 0;
+        if(this.exponent >= b.exponent) {
+            maxExponent = this.exponent;
+            minExponent = b.exponent;
+            b.myFraction *= (long)(Math.pow(10, maxExponent - minExponent));
+        }
+        else {
+            maxExponent = b.exponent;
+            minExponent = this.exponent;
+            myFraction *= (long)(Math.pow(10, maxExponent - minExponent));
+        }
+        myFraction += (long)(Math.pow(10, maxExponent));
+        resultFraction = myFraction - b.myFraction;
+        if (resultFraction < (long)(Math.pow(10, maxExponent))) {
+            resultInteger = -1;
+        }
+        resultFraction %= (long)(Math.pow(10, maxExponent));
+        resultInteger = resultInteger + myInteger - b.myInteger;
+        if (resultInteger < 0) {
+            resultFraction = (long)(Math.pow(10, maxExponent)) - resultFraction;
+            resultInteger++;
+        }
+        for (long i = resultFraction ; i < (long)(Math.pow(10, maxExponent - 1)) ; i *= 10) {
+            count++;
+        }
+    }
 }
