@@ -11,4 +11,9 @@ public class SelfMadeFloat
         this.mantissa = mantissa;
         this.exponent = exponent;
     }
+
+    private void intFract() {
+        myInteger = (long)(this.mantissa / Math.pow(10, this.exponent));
+        myFraction = (long)(this.mantissa % Math.pow(10, this.exponent));
+    }
 }
