@@ -43,6 +43,7 @@ public class SelfMadeFloat
         for (long i = resultFraction ; i < (long)(Math.pow(10, maxExponent - 1)) ; i *= 10) {
             count++;
         }
+        out(b, count, resultInteger, resultFraction);
     }
 
     public void dif(SelfMadeFloat b) {
@@ -75,5 +76,14 @@ public class SelfMadeFloat
         for (long i = resultFraction ; i < (long)(Math.pow(10, maxExponent - 1)) ; i *= 10) {
             count++;
         }
+        out(b, count, resultInteger, resultFraction);
+    }
+
+    public void out(SelfMadeFloat b, int count, long resultInteger, long resultFraction) {
+        System.out.print(resultInteger + ".");
+        for (int i = 0 ; i < count ; i++) {
+            System.out.print("0");
+        }
+        System.out.println(resultFraction);
     }
 }
